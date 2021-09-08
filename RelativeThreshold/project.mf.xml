@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest>
     <application name="RelativeThreshold">
         <crown name="relativeThreshold">
@@ -6,20 +6,9 @@
         </crown>
         <meta key="author">AppSpace Sample</meta>
         <meta key="version">1.0</meta>
-        <meta key="licensed">false</meta>
         <meta key="priority">low</meta>
         <meta key="read-protected">false</meta>
         <meta key="copy-protected">false</meta>
-        <entry path="pages" default="AppSpaceViewers-2.4.0.1.msdd">
-            <file type="application/zip">AppSpaceViewers-2.4.0.1.msdd</file>
-        </entry>
-        <entry path="resources">
-            <file type="image">BackgroundImage.bmp</file>
-            <file type="image">plusplus1.bmp</file>
-            <file type="image">plusplus2.bmp</file>
-        </entry>
-        <entry path="scripts" default="RelativeThreshold.lua">
-            <file type="text/x-lua">RelativeThreshold.lua</file>
-        </entry>
+        <entry default="RelativeThreshold.lua" path="scripts"/>
     </application>
 </manifest>
