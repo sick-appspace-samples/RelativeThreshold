@@ -5,16 +5,13 @@ print('AppEngine Version: ' .. Engine.getVersion())
 local DELAY = 1500 -- ms between visualization steps for demonstration purpose
 
 -- Creating viewer
-local viewer = View.create("viewer2D1")
+local viewer = View.create()
 
 -- Setup graphical overlay attributes
-local regionDecoration = View.PixelRegionDecoration.create()
-regionDecoration:setColor(0, 150, 0, 150)
+local regionDecoration = View.PixelRegionDecoration.create():setColor(0, 150, 0, 150)
 
 local textDecoration = View.TextDecoration.create()
-textDecoration:setColor(0, 0, 255)
-textDecoration:setSize(120)
-textDecoration:setPosition(50, 150, 0)
+textDecoration:setColor(0, 0, 255):setSize(120):setPosition(50, 150, 0)
 
 --End of Global Scope-----------------------------------------------------------
 
@@ -26,8 +23,8 @@ local function main()
 
   -- Show background image
   viewer:clear()
-  local imview = viewer:addImage(backgroundIm)
-  viewer:addText('BACKGROUND', textDecoration, nil, imview)
+  viewer:addImage(backgroundIm)
+  viewer:addText('BACKGROUND', textDecoration)
   viewer:present()
   Script.sleep(DELAY)
 
@@ -39,8 +36,8 @@ local function main()
 
     -- Show foreground image
     viewer:clear()
-    imview = viewer:addImage(foregroundIm)
-    viewer:addText('FOREGROUND', textDecoration, nil, imview)
+    viewer:addImage(foregroundIm)
+    viewer:addText('FOREGROUND', textDecoration)
     viewer:present()
     Script.sleep(DELAY)
 
@@ -51,17 +48,17 @@ local function main()
 
     -- Show image and thresholded result - direct
     viewer:clear()
-    imview = viewer:addImage(foregroundIm)
-    viewer:addText('DIRECT', textDecoration, nil, imview)
-    viewer:addPixelRegion(foundRegionFixed, regionDecoration, nil, imview)
+    viewer:addImage(foregroundIm)
+    viewer:addText('DIRECT', textDecoration)
+    viewer:addPixelRegion(foundRegionFixed, regionDecoration)
     viewer:present()
     Script.sleep(DELAY*2)
 
     -- Show image and thresholded result - compare
     viewer:clear()
-    imview = viewer:addImage(foregroundIm)
-    viewer:addText('COMPARE', textDecoration, nil, imview)
-    viewer:addPixelRegion(foundRegionRelative, regionDecoration, nil, imview)
+    viewer:addImage(foregroundIm)
+    viewer:addText('COMPARE', textDecoration)
+    viewer:addPixelRegion(foundRegionRelative, regionDecoration)
     viewer:present()
     Script.sleep(DELAY*2)
   end
